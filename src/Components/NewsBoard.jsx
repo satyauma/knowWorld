@@ -1,3 +1,4 @@
+import { ENV_VARIABLE_API_KEY } from "@langchain/community/chat_models/deepinfra";
 import NewsItem from "./NewsItem"
 
 
@@ -9,7 +10,7 @@ const NewsBoard = ({ category }) => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=07a39995ad69447aaa0c667b35f704da`;
+        const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${ENV_VARIABLE_API_KEY}`;
         const response = await fetch(url);
         if (!response.ok) {
           throw new Error('Failed to fetch news');
